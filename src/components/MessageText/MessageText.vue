@@ -23,7 +23,7 @@
     div#MessageText {
         padding: 20px;
 
-        width: 40rem;
+        width: 50vw;
 
         border: 2px solid var(--white);
 
@@ -37,7 +37,28 @@
         letter-spacing: 1px;
 
         font-family: "Josefin Sans";
-        font-size: 70px;
+        font-size: 5.5vw;
+    }
+
+    @media screen and (max-width: 822px) {
+        div#MessageText {
+            margin-left: 0;
+            margin-bottom: 8rem;
+
+            width: 70vw;
+        }
+
+        span#text {
+            font-size: 8vw;
+        }
+    }
+
+    @media screen and (max-width: 498px) {
+        div#MessageText {
+            margin-bottom: 12rem;
+
+            width: 80vw;
+        }
     }
 
 </style>

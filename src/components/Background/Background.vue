@@ -31,7 +31,17 @@
         background-image: url(../../assets/desktop/image-hero.jpg);
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position: top;
+    }
+
+    @media screen and (max-width: 822px) {
+        div#Background {
+            align-items: center;
+
+            background-image: url(../../assets/mobile/image-hero.jpg);
+
+            height: 35rem;
+        }
     }
 
 </style>

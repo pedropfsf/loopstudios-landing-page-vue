@@ -5,7 +5,10 @@
             src="../../assets/logo.svg"
             alt="logo image"
         />
-        <nav id="navBar">
+        <nav 
+            id="navBar"
+            v-show="toggleMenu === 'desktop'"
+        >
             <ul id="listItens">
                 <Item
                     v-for="item in itemsNavBar"
@@ -14,17 +17,24 @@
                 />
             </ul>
         </nav>
+        <ButtonMobile 
+            v-show="toggleMenu === 'mobile'"
+            @click-button="clickButton"
+            :value="valueMenuMobile"
+        />
     </header>
 </template>
 
 <script>
 
     import Item from './Item/Item.vue';
+    import ButtonMobile from './ButtonMobile/ButtonMobile.vue';
 
     export default {
         name: "Header",
         components: {
-            Item
+            Item,
+            ButtonMobile,
         },
         data() {
             return {
@@ -49,8 +59,31 @@
                         id: 5,
                         text: "Support"
                     }
-                ]
+                ],
+                mediaQuerieList: matchMedia("(max-width: 822px)"),
+                toggleMenu: "desktop",
+                valueMenuMobile: ''
+
             }
+        },
+        methods: {
+            showButtonMobile(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    this.toggleMenu = "mobile";
+                } else {
+                    this.toggleMenu = "desktop";
+                }
+            },
+            clickButton(value) {
+                this.valueMenuMobile = value;
+
+                console.log(this.valueMenuMobile)
+            }
+        },
+        mounted() {
+            this.showButtonMobile(this.mediaQuerieList);
+
+            this.mediaQuerieList.addEventListener('change', this.showButtonMobile);
         }
     }
 
@@ -84,6 +117,16 @@
         width: 30rem;
 
         justify-content: space-around;
+    }
+
+    @media screen and (max-width: 443px) {
+        header#Header {
+            height: 5.5rem;
+        }
+
+        img#logo {
+            width: 7.5rem;
+        }
     }
 
 </style>
