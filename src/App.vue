@@ -1,13 +1,25 @@
 <template>
-  <h1>Olá mundo</h1>
+  <div>
+    <Background>
+      <Header/>
+      <MessageText>
+        IMMERSIVE EXPERIENCES THAT DELIVER
+      </MessageText>
+    </Background>
+  </div>
 </template>
 
 <script>
+  import Background from './components/Background/Background.vue';
+  import Header from './components/Header/Header.vue';
+  import MessageText from './components/MessageText/MessageText.vue';
 
   export default {
     name: 'App',
     components: {
-      
+      Background,
+      Header,
+      MessageText
     }
   }
 
