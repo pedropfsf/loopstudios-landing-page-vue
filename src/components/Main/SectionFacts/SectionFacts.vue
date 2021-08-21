@@ -2,7 +2,7 @@
     <section id="sectionFacts">
         <img
             id="imageFacts"
-            src="../../assets/desktop/image-interactive.jpg"
+            src="../../../assets/desktop/image-interactive.jpg"
             alt="image interactive"
         />
         <article id="articleFacts">
@@ -56,7 +56,7 @@
 
         margin-top: 7rem;
 
-        width: 80%;
+        width: 100%;
         height: 30rem;
 
         position: relative;

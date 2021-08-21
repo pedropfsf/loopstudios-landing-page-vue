@@ -1,22 +1,21 @@
 <template>
-  <div>
+  <div id="run">
     <Background>
       <Header/>
       <MessageText>
         IMMERSIVE EXPERIENCES THAT DELIVER
       </MessageText>
     </Background>
-    <main id="main">
-      <SectionFacts/>
-    </main>
+    <Main/>
   </div>
 </template>
 
 <script>
+
   import Background from './components/Background/Background.vue';
   import Header from './components/Header/Header.vue';
   import MessageText from './components/MessageText/MessageText.vue';
-  import SectionFacts from './components/SectionFacts/SectionFacts.vue';
+  import Main from './components/Main/Main.vue';
 
 export default {
     name: 'App',
@@ -24,7 +23,7 @@ export default {
       Background,
       Header,
       MessageText,
-      SectionFacts
+      Main
     }
   }
 
@@ -58,10 +57,10 @@ export default {
     src: url(./fonts/josefin-sans/static/JosefinSans-Light.ttf);
   }
 
-  main#main {
+  div#run {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
   }
+  
 </style>
