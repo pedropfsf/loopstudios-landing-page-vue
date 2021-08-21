@@ -3,7 +3,7 @@
         <div 
             class="Card"
             :style="{
-                backgroundImage: `url(${require(`../../../../assets/desktop/${src}`)})`
+                backgroundImage: `url(${require(`../../../../assets/${typeSource}/${src}`)})`
             }"
         >
             
@@ -30,6 +30,26 @@
                 require: true,
                 type: String
             },
+        },
+        data() {
+            return {
+                typeSource: "desktop",
+                mediaQuerieList: matchMedia("(max-width: 984px)"),
+            }
+        },
+        methods: {
+            toggleTypeSource(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    this.typeSource = "mobile";
+                } else {
+                    this.typeSource = "desktop";
+                }
+            }
+        },
+        mounted() {
+            this.toggleTypeSource(this.mediaQuerieList);
+
+            this.mediaQuerieList.addEventListener('change', this.toggleTypeSource);
         }
     }
 
@@ -39,7 +59,7 @@
 
     li.itemCard {
         list-style-type: none;
-        
+
         margin-right: 15px;
         margin-bottom: 15px;
     }
@@ -73,8 +93,28 @@
         color: var(--white);
 
         font-family: "Josefin Sans";
-
         font-size: 30px;
+    }
+
+    @media screen and (max-width: 984px) {
+        li.itemCard {
+            margin-right: 0;
+
+        }
+
+        li.itemCard,
+        div.Card
+        {
+            width: 100%;
+        }
+
+        div.Card {
+            height: 10rem;
+
+            background-size: cover;
+
+            padding: 20px;
+        }
     }
 
 </style>

@@ -4,7 +4,7 @@
             <span id="title">
                 OUR CREATIONS
             </span>
-            <Button>
+            <Button v-show="!toggleButton">
                 See All
             </Button>
         </header>
@@ -16,6 +16,9 @@
                 :text="item.text"
             />
         </ul>
+        <Button v-show="toggleButton">
+            See All
+        </Button>
     </div>
 </template>
 
@@ -73,8 +76,24 @@
                         src: "image-fisheye.jpg",
                         text: "MAKE IT FISHEYE"
                     }
-                ]
+                ],
+                toggleButton: false,
+                mediaQuerieList: matchMedia("(max-width: 616px)")
             }
+        },
+        methods: {
+            toggleButtonResponsive(mediaQuerieList) {
+                if(mediaQuerieList.matches) {
+                    this.toggleButton = true;
+                } else {
+                    this.toggleButton = false;
+                }
+            }
+        },
+        mounted() {
+            this.toggleButtonResponsive(this.mediaQuerieList);
+
+            this.mediaQuerieList.addEventListener('change', this.toggleButtonResponsive);
         }
     }
 
@@ -114,6 +133,29 @@
         grid-template: auto auto / 25% 25% 25% 25%;
 
         width: 100%;
+    }
+
+    @media screen and (max-width: 984px) {
+        ul#cards {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @media screen and (max-width: 616px) {
+        header#headerCards {
+            justify-content: center;
+        }
+
+        span#title {
+            text-align: center;
+        }
+
+        ul#cards {
+            margin-bottom: 20px;
+        }
     }
 
 </style>
