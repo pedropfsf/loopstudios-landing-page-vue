@@ -6,6 +6,28 @@
         IMMERSIVE EXPERIENCES THAT DELIVER
       </MessageText>
     </Background>
+    <main id="main">
+      <section id="sectionFacts">
+        <img
+          id="imageFacts"
+          src="./assets/desktop/image-interactive.jpg"
+          alt="image interactive"
+        />
+        <article id="articleFacts">
+          <div id="messageFacts">
+            <h1 id="title">
+              THE LEADER IN INTERACTIVE VR
+            </h1>
+            <p id="paragraph">
+              Founded in 2011, Loopstudios has been producing world-class
+              virtual reality projects for some of the best companies around
+              the globe. Our award-winning creations have transformed<br> businesses
+              through digital experiences that bind to their brand.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -53,4 +75,59 @@
     src: url(./fonts/josefin-sans/static/JosefinSans-Light.ttf);
   }
 
+  main#main {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  main#main,
+  section#sectionFacts
+  {
+    display: flex;
+  }
+
+  section#sectionFacts {
+    margin-top: 7rem;
+
+    width: 80%;
+    height: 30rem;
+
+    position: relative;
+  }
+  
+  img#imageFacts {
+    width: 45rem;
+  }
+
+  div#messageFacts {
+    background-color: var(--white);
+
+    width: 36rem;
+
+    padding-left: 5rem;
+    padding-top: 5rem;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  h1#title {
+    font-family: "Josefin Sans", Helvetica, sans-serif;
+    font-size: 3rem;
+    font-weight: normal;
+
+    margin-bottom: 2rem;
+  }
+
+  p#paragraph {
+    color: var(--very-dark-gray);
+
+    font-family: Atala, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+
+    line-height: 1.7rem;
+  }
 </style>
