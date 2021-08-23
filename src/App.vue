@@ -7,6 +7,7 @@
       </MessageText>
     </Background>
     <Main/>
+    <Footer/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
   import Header from './components/Header/Header.vue';
   import MessageText from './components/MessageText/MessageText.vue';
   import Main from './components/Main/Main.vue';
+  import Footer from './components/Footer/Footer.vue';
 
 export default {
     name: 'App',
@@ -23,7 +25,8 @@ export default {
       Background,
       Header,
       MessageText,
-      Main
+      Main,
+      Footer
     }
   }
 
