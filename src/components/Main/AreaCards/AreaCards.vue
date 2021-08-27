@@ -145,6 +145,10 @@
     }
 
     @media screen and (max-width: 616px) {
+        div#AreaCards {
+            margin: 5rem 0;
+        }
+
         header#headerCards {
             justify-content: center;
         }

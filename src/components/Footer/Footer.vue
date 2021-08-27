@@ -231,4 +231,10 @@
         }
     }
 
+    @media screen and (max-width: 450px) {
+        span#rights-text {
+            font-size: 15px;
+        }
+    }
+
 </style>

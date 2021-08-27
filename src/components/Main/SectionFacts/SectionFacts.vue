@@ -98,34 +98,39 @@
     }
 
     @media screen and (max-width: 830px) {
-    img#imageFacts {
-        width: 85vw;
-        height: 60vw;
+        img#imageFacts {
+            width: 100%;
 
-        margin-bottom: 3rem;
+            margin-bottom: 3rem;
         }
 
-    section#sectionFacts {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        section#sectionFacts {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-        height: auto;
+            height: auto;
         }
 
-    div#messageFacts {
-        position: static;
+        div#messageFacts {
+            position: static;
 
-        padding-left: 0;
-        padding-top: 0;
+            padding-left: 0;
+            padding-top: 0;
 
-        width: 85vw;
+            width: 100%;
         }
 
-    h1#title,
-    p#paragraph
+        h1#title,
+        p#paragraph
         {
-        text-align: center;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 616px) {
+        section#sectionFacts {
+            margin-top: 5rem;
         }
     }
 
