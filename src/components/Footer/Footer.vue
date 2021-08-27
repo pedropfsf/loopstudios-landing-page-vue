@@ -1,26 +1,12 @@
 <template>
     <footer id="Footer">
-        <div class="line">
+        <div id="side-bar-two-sides">
             <img
+                id="logo-footer"
                 :src="require('../../assets/logo.svg')"
                 alt="logo loopstudios"
             />
 
-            <div id="area-social-media">
-                <a 
-                    class="link-social-media"
-                    href="#"
-                    v-for="item in iconsSocialMedia"
-                    :key="item.id"
-                >
-                    <img
-                        :src="require(`../../assets/${item.src}`)"
-                        :alt="item.alt"
-                    />
-                </a>
-            </div>
-        </div>
-        <div class="line">
             <nav id="nav-bar-footer">
                 <ul id="list-items">
                     <li
@@ -34,19 +20,36 @@
                     </li>
                 </ul>
             </nav>
+            <div id="area-social-media">
+                <li 
+                    class="item-link-social-media"
+                    v-for="item in iconsSocialMedia"
+                    :key="item.id"
+                >
+                    <LinkSocialMedia
+                        
+                        :src="item.src"
+                        :alt="item.alt"
+                    />
+                </li>
+            </div>
+
             <span id="rights-text">
                 © 2021 Loopstudios. All rights reserved.
             </span>
+
         </div>
     </footer>
 </template>
 
 <script>
 
+    import LinkSocialMedia from './LinkSocialMedia/LinkSocialMedia.vue';
+
     export default {
         name: "Footer",
         components: {
-
+            LinkSocialMedia
         },
         data() {
             return {
@@ -107,51 +110,75 @@
         height: 8rem;
 
         background-color: var(--black);
-    
-        flex-direction: column;
-        justify-content: space-evenly;
 
-    }
-
-    a.link-social-media
-    {
         justify-content: center;
     }
 
-    footer#Footer,
-    div.area-social-media,
-    div.line,
-    div#area-social-media,
-    a.link-social-media,
-    ul#list-items
-    {
-        display: flex;
-        align-items: center;
-    }
-
-    div.line {
+    div#side-bar-two-sides {
         width: 80%;
+        height: inherit;
 
+        display: grid;
+        grid-template-areas: 
+            "logo areaSocialMedia"
+            "navBar rights"
+        ;
     }
 
-    div.area-social-media,
-    div.line,
+    nav#nav-bar-footer {
+        grid-area: navBar;
+        justify-self: flex-start;
+    }
+
+    img#logo-footer,
     div#area-social-media,
-    ul#list-items 
+    nav#nav-bar-footer,
+    span#rights-text
     {
-        justify-content: space-between;
+        align-self: center;
+    }
+
+    img#logo-footer {
+        grid-area: logo;
+        justify-self: flex-start;
     }
 
     div#area-social-media {
         width: 9rem;
+
+        grid-area: areaSocialMedia;
+        justify-self: flex-end;
+    }
+
+    span#rights-text {
+        grid-area: rights;
+        justify-self: flex-end;
+    }
+
+    footer#Footer,
+    div#area-social-media,
+    ul#list-items 
+    {
+        display: flex;
+    }
+
+    div#area-social-media,
+    ul#list-items 
+    {
+        justify-content: space-between;
+        align-items: center;
     }
 
     ul#list-items {
         width: 30vw;
     }
 
-    li.item-text-link {
+    li {
         list-style-type: none;
+    }
+
+    a.link-social-media {
+        justify-content: center;
     }
 
     span.text-link {
