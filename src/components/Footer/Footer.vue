@@ -34,6 +34,9 @@
                     </li>
                 </ul>
             </nav>
+            <span id="rights-text">
+                © 2021 Loopstudios. All rights reserved.
+            </span>
         </div>
     </footer>
 </template>
@@ -101,13 +104,13 @@
 
     footer#Footer {
         width: 100%;
-        height: 10rem;
+        height: 8rem;
 
         background-color: var(--black);
     
         flex-direction: column;
+        justify-content: space-evenly;
 
-        justify-content: space-around;
     }
 
     a.link-social-media
@@ -134,13 +137,17 @@
     div.area-social-media,
     div.line,
     div#area-social-media,
-    ul#list-items
+    ul#list-items 
     {
         justify-content: space-between;
     }
 
     div#area-social-media {
         width: 9rem;
+    }
+
+    ul#list-items {
+        width: 30vw;
     }
 
     li.item-text-link {
@@ -151,6 +158,13 @@
         color: var(--white);
 
         font-family: Atala, Helvetica, sans-serif;
+    }
+
+    span#rights-text {
+        color: var(--very-dark-gray);
+
+        font-size: 12.5px;
+        font-weight: bold;
     }
 
 </style>
