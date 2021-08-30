@@ -1,8 +1,11 @@
 <template>
     <li class="Item">
-        <a class="link-item" href="#">
-            {{ textLink }}
-        </a>
+        <div class="area-item">
+            <a class="link-item" href="#">
+                {{ textLink }}
+            </a>
+            <div class="bar"></div>
+        </div>
     </li>
 </template>
 
@@ -28,6 +31,14 @@
         list-style-type: none;
     }
 
+    div.area-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
     a.link-item {
         color: var(--white);
 
@@ -35,5 +46,20 @@
         
         font-family: "Josefin Sans";
         font-weight: bold;
+    }
+
+    div.bar {
+        width: 0;
+        height: 3px;
+
+        transition: width 200ms;
+
+        margin-top: 10px;
+
+        background-color: var(--white);
+    }
+
+    div.area-item:hover > div.bar {
+        width: 100%;
     }
 </style>

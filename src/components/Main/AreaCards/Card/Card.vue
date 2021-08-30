@@ -1,12 +1,21 @@
 <template>
     <li class="itemCard">
-        <div 
+        <!-- <div 
             class="Card"
             :style="{
                 backgroundImage: `url(${require(`../../../../assets/${typeSource}/${src}`)})`
             }"
         >
             
+            <span class="textCard">
+                {{ text }}
+            </span>
+        </div> -->
+        <div class="Card">
+            <img
+                class="imageCard"
+                :src="require(`../../../../assets/${typeSource}/${src}`)"
+            />
             <span class="textCard">
                 {{ text }}
             </span>
@@ -70,11 +79,8 @@
         margin-right: 0;
     }
 
-
     div.Card {
         height: 27.5rem;
-
-        padding: 20px;
 
         background-repeat: no-repeat;
         background-position: center;
@@ -83,10 +89,29 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: flex-start;
+
+        position: relative;
     }
 
     img.imageCard {
-        position: absolute;
+        width: 100%;
+        height: inherit;
+
+        object-fit: cover;
+    }
+
+    img.imageCard,
+    span.textCard
+    {
+        transition: all 200ms;
+    }
+
+    div.Card:hover > img.imageCard {
+        opacity: 0.2;
+    }
+
+    div.Card:hover > span.textCard {
+        color: var(--black);
     }
 
     span.textCard {
@@ -94,6 +119,10 @@
 
         font-family: "Josefin Sans";
         font-size: 30px;
+
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
     }
 
     @media screen and (max-width: 984px) {
@@ -112,8 +141,6 @@
             height: 10rem;
 
             background-size: cover;
-
-            padding: 20px;
         }
     }
 

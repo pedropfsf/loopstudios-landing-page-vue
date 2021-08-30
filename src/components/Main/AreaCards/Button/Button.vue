@@ -32,6 +32,20 @@
         padding: 10px 40px;
     }
 
+    button#Button,
+    span#textButton
+    {
+        transition: all 200ms;
+    }
+
+    button#Button:hover {
+        background-color: var(--black);
+    }
+
+    button#Button:hover > span#textButton {
+        color: var(--white);
+    }
+
     span#textButton {
         font-family: "Josefin Sans";
 
