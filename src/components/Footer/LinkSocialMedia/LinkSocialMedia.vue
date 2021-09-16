@@ -37,8 +37,6 @@
         mounted() {
             const linkRef = this.$refs.link;
             const barRef = this.$refs.bar;
-            console.log(linkRef);
-            console.log(barRef);
 
             linkRef.addEventListener('mouseenter', () => {
                 barRef.style.width = "100%";

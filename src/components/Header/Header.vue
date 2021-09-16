@@ -19,7 +19,7 @@
         </nav>
         <ButtonMobile 
             v-show="toggleMenu === 'mobile'"
-            @click-button="clickButton"
+            @click-button="methodMenuMobile"
             :value="valueMenuMobile"
         />
     </header>
@@ -61,9 +61,7 @@
                     }
                 ],
                 mediaQuerieList: matchMedia("(max-width: 822px)"),
-                toggleMenu: "desktop",
-                valueMenuMobile: ''
-
+                toggleMenu: "desktop"
             }
         },
         methods: {
@@ -74,16 +72,21 @@
                     this.toggleMenu = "desktop";
                 }
             },
-            clickButton(value) {
-                this.valueMenuMobile = value;
-
-                console.log(this.valueMenuMobile)
-            }
         },
         mounted() {
             this.showButtonMobile(this.mediaQuerieList);
 
             this.mediaQuerieList.addEventListener('change', this.showButtonMobile);
+        },
+        props: {
+            valueMenuMobile: {
+                require: true,
+                type: Boolean
+            },
+            methodMenuMobile: {
+                require: true,
+                type: Function
+            }
         }
     }
 

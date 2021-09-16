@@ -1,5 +1,8 @@
 <template>
-    <div id="Background">
+    <div 
+        id="Background"
+        ref="background"
+    >
         <slot>
 
         </slot>
@@ -12,6 +15,27 @@
         name: "Background",
         components: {
 
+        },
+        props: {
+            typeJustifyContent: {
+                require: true,
+                type: String
+            },
+            removeBackgroundImage: {
+                require: true,
+                type: Boolean
+            }
+        },
+        updated() {
+            this.$refs.background.style.justifyContent = this.typeJustifyContent;
+
+            if(this.removeBackgroundImage) {
+                this.$refs.background.style.backgroundImage = "none";
+                this.$refs.background.style.height = "100vh";
+            } else {
+                this.$refs.background.style.backgroundImage = `url(${require('../../assets/desktop/image-hero.jpg')})`;
+                this.$refs.background.style.height = "";
+            }
         }
     }
 
@@ -28,6 +52,7 @@
         justify-content: space-between;
         align-items: flex-start;
 
+        background-color: var(--black);
         background-image: url(../../assets/desktop/image-hero.jpg);
         background-repeat: no-repeat;
         background-size: cover;

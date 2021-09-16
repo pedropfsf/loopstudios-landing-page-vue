@@ -1,13 +1,31 @@
 <template>
   <div id="run">
-    <Background>
-      <Header/>
-      <MessageText>
+    <Background
+      :typeJustifyContent="
+        valueMenuMobile ? 'flex-start' : 'space-between'
+      "
+      :removeBackgroundImage="valueMenuMobile"
+    >
+      <Header
+        :valueMenuMobile="valueMenuMobile"
+        :methodMenuMobile="changeMenuMobile"
+      />
+      <MenuMobile
+        v-show="valueMenuMobile"
+      />
+      <MessageText
+        v-show="!valueMenuMobile"
+      >
         IMMERSIVE EXPERIENCES THAT DELIVER
       </MessageText>
     </Background>
-    <Main/>
-    <Footer/>
+    
+    <Main
+      v-show="!valueMenuMobile"
+    />
+    <Footer
+      v-show="!valueMenuMobile"
+    />
   </div>
 </template>
 
@@ -18,6 +36,7 @@
   import MessageText from './components/MessageText/MessageText.vue';
   import Main from './components/Main/Main.vue';
   import Footer from './components/Footer/Footer.vue';
+  import MenuMobile from './components/MenuMobile/MenuMobile.vue';
 
 export default {
     name: 'App',
@@ -26,7 +45,30 @@ export default {
       Header,
       MessageText,
       Main,
-      Footer
+      Footer,
+      MenuMobile
+    },
+    data() {
+      return {
+        valueMenuMobile: false,
+        mediaQuerieList: matchMedia("(max-width: 822px)")
+      }
+    },
+    methods: {
+      changeMenuMobile() {
+        this.valueMenuMobile = !this.valueMenuMobile;
+      },
+      changeValueResponsive(mediaQuerieList) {
+        if(mediaQuerieList.matches) {
+          this.valueMenuMobile = false;
+          console.log("Funcionou");
+        }
+      },
+      mounted() {
+        this.changeValueResponsive(this.mediaQuerieList);
+
+        this.mediaQuerieList.addListener(this.changeValueResponsive);
+      }
     }
   }
 

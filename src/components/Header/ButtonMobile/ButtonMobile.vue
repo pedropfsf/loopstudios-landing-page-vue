@@ -1,7 +1,7 @@
 <template>
     <div 
         id="ButtonMobile"
-        @click="$emit('click-button', valueButton)"
+        @click="$emit('click-button')"
     >
         <div 
             class="line"
@@ -38,7 +38,7 @@
         },
         props: {
             value: {
-                required: true,
+                require: true,
                 type: Boolean
             }
         },
@@ -55,8 +55,7 @@
                 lineBottom: {
                     bottom: "0%",
                     transform: "",
-                },
-                valueButton: false,
+                }
             }
         },
         methods: {
@@ -82,8 +81,6 @@
         },
         updated() {
             this.changeStylesLine(this.value);
-            
-            this.valueButton = !this.value;
         }
     }
 
