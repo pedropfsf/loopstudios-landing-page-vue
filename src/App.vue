@@ -59,16 +59,18 @@ export default {
         this.valueMenuMobile = !this.valueMenuMobile;
       },
       changeValueResponsive(mediaQuerieList) {
-        if(mediaQuerieList.matches) {
+        if(!mediaQuerieList.matches) {
           this.valueMenuMobile = false;
-          console.log("Funcionou");
         }
-      },
-      mounted() {
-        this.changeValueResponsive(this.mediaQuerieList);
-
-        this.mediaQuerieList.addListener(this.changeValueResponsive);
       }
+    },
+    mounted() {
+      this.changeValueResponsive(this.mediaQuerieList);
+
+      this.mediaQuerieList.addEventListener("change", this.changeValueResponsive);
+    },
+    updated() {
+      this.mediaQuerieList.addEventListener("change", this.changeValueResponsive);
     }
   }
 

@@ -106,7 +106,6 @@
         background-color: var(--white);
 
         position: relative;
-        /* transform: translateY(-50%); */
 
         transition: all 200ms;
     }
